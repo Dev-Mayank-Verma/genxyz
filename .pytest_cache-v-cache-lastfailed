@@ -1,0 +1,4 @@
+{
+  "tests/test_provider_contract.py": true,
+  "tests/test_validation.py": true
+}

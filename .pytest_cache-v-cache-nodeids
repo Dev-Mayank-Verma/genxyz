@@ -1,0 +1,5 @@
+[
+  "tests/test_browser_import.py::test_browser_module_imports",
+  "tests/test_domain_validation.py::test_invalid_domain",
+  "tests/test_domain_validation.py::test_valid_xyz_domain"
+]

@@ -1,0 +1,31 @@
+services:
+  - type: web
+    name: xyz-telegram-bot
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn -w 2 -b 0.0.0.0:$PORT app.main:app
+    healthCheckPath: /health
+    envVars:
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false
+      - key: TELEGRAM_WEBHOOK_SECRET
+        sync: false
+      - key: PUBLIC_BASE_URL
+        sync: false
+      - key: DATABASE_URL
+        sync: false
+      - key: REGISTRAR_BASE_URL
+        sync: false
+      - key: REGISTRAR_API_KEY
+        sync: false
+      - key: REGISTRAR_AVAILABILITY_PATH
+        value: /domains/availability
+      - key: REGISTRAR_PRICE_PATH
+        value: /domains/price
+      - key: REGISTRAR_REGISTER_PATH
+        value: /domains/register
+      - key: REGISTRAR_STATUS_PATH
+        value: /orders/{order_id}
+      - key: REGISTRAR_COUPON_CODE
+        sync: false
